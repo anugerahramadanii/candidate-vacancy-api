@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "88e8ed61-c20a-4db9-8ad3-8d21f3651b47",
+		"name": "CANDIDATE VACANCY API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32045435"
+	},
+	"item": [
+		{
+			"name": "CANDIDATE",
+			"item": [
+				{
+					"name": "ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/candidates?page=1&size=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"candidates"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/candidates/68cd8282c50f2376a4f805bd"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": null,\r\n    \"email\": null,\r\n    \"birthdate\": \"2002-03-01\",\r\n    \"gender\": \"FEMALE\",\r\n    \"currentSalary\": 4000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/candidates"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Siti Rahayu  \",\r\n    \"email\": \"siti.r@example.com\",\r\n    \"birthdate\": \"1996-05-15\",\r\n    \"gender\": \"FEMALE\",\r\n    \"currentSalary\": 1000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/candidates/68cd73d5bd4ab9b1641ce719"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/candidates/68cd955ec9c61bc13dabc903"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VACANCY",
+			"item": [
+				{
+					"name": "ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/v1/vacancies"
+					},
+					"response": []
+				},
+				{
+					"name": "BY ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Senior Data Scientist\",\r\n    \"criteria\": [\r\n        {\r\n            \"type\": \"AGE\",\r\n            \"weight\": 3,\r\n            \"ageCriteria\": {\r\n                \"minAge\": 22,\r\n                \"maxAge\": 30\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"GENDER\",\r\n            \"weight\": 1,\r\n            \"genderCriteria\": {\r\n                \"gender\": \"ANY\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"SALARY\",\r\n            \"weight\": 5,\r\n            \"salaryCriteria\": {\r\n                \"minSalary\": 4500000,\r\n                \"maxSalary\": 6500000\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/vacancies"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Senior Data Scientist\",\r\n    \"criteria\": [\r\n        {\r\n            \"type\": \"AGE\",\r\n            \"weight\":4,\r\n            \"ageCriteria\": {\r\n                \"minAge\": 30,\r\n                \"maxAge\": 45\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"GENDER\",\r\n            \"weight\": 2,\r\n            \"genderCriteria\": {\r\n                \"gender\": \"MALE\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"SALARY\",\r\n            \"weight\": 6,\r\n            \"salaryCriteria\": {\r\n                \"minSalary\": 7500000,\r\n                \"maxSalary\": 10000000\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/vacancies/68cfbbee16701d5afa660a34"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/v1/vacancies/68cd93e2c9c61bc13dabc901"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RANK",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/candidates/"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
+}

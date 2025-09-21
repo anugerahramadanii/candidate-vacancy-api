@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: candidate-vacancy-api
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: candidate_vacancy_db
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+      accept-empty-string-as-null-object: true
+    time-zone: UTC
+    date-format: yyyy-MM-dd
+
+logging:
+  level:
+    com.feignz.candidate_vacancy_api: DEBUG
